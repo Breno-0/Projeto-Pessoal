@@ -10,7 +10,7 @@ body{
 }
 
 .header{
-    height: 20%;
+    height: 13vh;
     border-bottom: 4px solid red;
 }
 
@@ -78,7 +78,7 @@ body{
 .banner{
     display: flex;
     height: 50vh;
-    border-bottom: 4px solid red;
+    border-bottom: 4px solid rgb(202, 17, 17);
     background-image: url(../img/imagemFundo.jpg);
     background-attachment: fixed;
     background-size: cover;
@@ -92,7 +92,7 @@ body{
     justify-content: center;
 }
 
-.banner .container .cardExplicativo{
+.banner .container .cardInicial{
     text-align: center;
     width: 1500px;
     height: 100px;
@@ -111,6 +111,41 @@ body{
 .teste{
     height: 200px;
 }
+
+/*-----------------------------------------------Info Bandas-------------------------------------------*/
+.infoBandas{
+    display: flex;
+    flex-direction: row;
+    background-color: white;
+    height: 50vh;
+    align-items: center;
+    justify-content: center;
+    justify-content: space-evenly;
+}
+
+.infoBandas .cardBanda{
+    height: 50px;
+    width: 100px;
+    background-color: gray;
+    border: solid black;
+    border-radius: 15px;
+    text-align: center;
+}
+/*----------------------------------------------footer---------------------------------------------*/
+
+
+footer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 20vh;
+    background-color: rgb(202, 17, 17);
+}
+
+.creditos{
+font-size: large;
+}
+
 
 
 
