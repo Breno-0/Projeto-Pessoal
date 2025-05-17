@@ -3,31 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Heavy-Metal Wiki | Login</title>
+    <title>Login | Heavy-Metal Wiki</title>
     <link rel="stylesheet" href="styles/style.css">
+    
 </head>
 <body>
     <div class="header">
         <div class="container">
             <h1 class="titulo">Heavy-Metal Wiki</h1>
             <ul class="navbar">
-                <li>
-                    <a href="index.html">inicial</a>
-                </li>
+                <li><a href="index.html">Início</a></li>
                 <span class="barra">|</span>
-                <li class="agora">
-                    <a href="#">Login</a>
-                </li>
+                <li  class="agora" ><a href="#">Login</a></li>
                 <span class="barra">|</span>
-                <li>
-                    <a href="cadastro.html">Cadastro</a>
-                </li>
-                
-
+                <li><a href="cadastro.html">Cadastro</a></li>
             </ul>
-
         </div>
     </div>
     
+    <form class="login-container">
+        <h2>Login</h2>
+        <label for="email">E-mail</label>
+        <input type="email" id="email" name="email" placeholder="Digite seu e-mail" required>
+        <label for="senha">Senha</label>
+        <input type="password" id="senha" name="senha" placeholder="Digite sua senha" required>
+        <button type="submit">Entrar</button>
+        <div class="link-cadastro">
+            Não tem conta? <a href="cadastro.html">Cadastre-se</a>
+        </div>
+    </form>
 </body>
 </html>
