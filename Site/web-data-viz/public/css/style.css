@@ -80,7 +80,7 @@ header .container {
     display: flex;
     height: 50vh;
     border-bottom: 4px solid rgb(202, 17, 17);
-    background-image: url(../img/imagemFundo.jpg);
+    background-image: url(../assets/imgs/imagemFundo.jpg);
     background-attachment: fixed;
     background-size: cover;
     background-repeat: no-repeat;
@@ -218,19 +218,19 @@ header .container {
 }
 
 .cardBanda1 {
-    background-image: url(../img/Toxicity.jpeg);
+    background-image: url(../assets/imgs/Toxicity.jpeg);
 }
 
 .cardBanda2 {
-    background-image: url(../img/Slipkno.jpg);
+    background-image: url(../assets/imgs/Slipkno.jpg);
 }
 
 .cardBanda3 {
-    background-image: url(../img/metalica2.jpg);
+    background-image: url(../assets/imgs/metalica2.jpg);
 }
 
 .cardBanda4 {
-    background-image: url(../img/BlackSAB.jpg);
+    background-image: url(../assets/imgs/BlackSAB.jpg);
 }
 
 
@@ -455,21 +455,21 @@ footer {
 }
 
 .SOAD {
-    background-image: url(../img/System-of-a-DownDivulgacao.jpg);
+    background-image: url(../assets/imgs/SOADfundo.jpg);
     background-size: cover;
 }
 
 .SLIPKNOT {
-    background-image: url(../img/slipknotfundo.png);
+    background-image: url(../assets/imgs/slipknotfundo.png);
     background-size: cover;
 }
 
 .METALLICA {
-    background-image: url(../img/metallicaFundo.jpg);
+    background-image: url(../assets/imgs/metallicaFundo.jpg);
     background-size: cover;
 }
 
 .BLACK {
-    background-image: url(../img/blackfundo3.jpg);
+    background-image: url(../assets/imgs/blackfundo3.jpg);
     background-size: cover;
 }
