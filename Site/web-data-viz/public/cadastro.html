@@ -10,6 +10,7 @@
 
     <script src="./js/sessao.js"></script>
 
+    <link rel="icon" href="assets/icon/iconeRock.png" />
     <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.gstatic.com" />
 </head>
@@ -36,8 +37,8 @@
 
     <div class="cadastro-container">
 
-        <div class="alerta_erro">
-      <div class="card_erro" id="cardErro">
+    <div class="alerta_erro">
+       <div class="card_erro" id="cardErro">
         <span id="mensagem_erro"></span>
       </div>
     </div>
@@ -78,7 +79,7 @@
         </div>
 
         <div id="div_aguardar" class="loading-div" style="display: none;">
-          <img src="./assets/circle-loading.gif" id="loading-gif" />
+          <img src="./assets/aguarde-orange.gif" id="loading-gif" />
         </div>
 
         <div id="div_erros_login"></div>
@@ -116,15 +117,36 @@
     console.log('valor soad:', soad);
 
     // Verificando se há algum campo em branco
-    if (
-      nomeVar == "" ||
+    if(nomeVar == "" ||
       emailVar == "" ||
       senhaVar == "" ||
       confirmacaoSenhaVar == ""
     ) {
       cardErro.style.display = "block";
       mensagem_erro.innerHTML =
-        "(Mensagem de erro para todos os campos em branco)";
+        "Todos os campos devem ser preenchidos!";
+
+      finalizarAguardar();
+      return false;
+    } else if (senhaVar.length < 8) {
+      cardErro.style.display = "block";
+      mensagem_erro.innerHTML =
+        "A senha deve ter no mínimo 8 caracteres!";
+
+      finalizarAguardar();
+      return false;
+    } else if (senhaVar != confirmacaoSenhaVar) {
+      cardErro.style.display = "block";
+      mensagem_erro.innerHTML =
+        "As senhas não conferem!";
+
+      finalizarAguardar();
+      return false;
+    } else if (
+      emailVar.indexOf("@") == -1 || emailVar.indexOf(".") == -1) {
+      cardErro.style.display = "block";
+      mensagem_erro.innerHTML =
+        "O e-mail deve conter @ e .";
 
       finalizarAguardar();
       return false;
@@ -187,3 +209,5 @@
 
 
 </html>
+
+

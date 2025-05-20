@@ -8,6 +8,7 @@
 
     <script src="./js/sessao.js"></script>
 
+    <link rel="icon" href="assets/icon/iconeRock.png" />
     <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     
@@ -45,10 +46,10 @@
         <button onclick="entrar()">Entrar</button>
 
         <div id="div_aguardar" class="loading-div" style="display: none;">
-          <img src="./assets/circle-loading.gif" id="loading-gif" />
+          <img src="./assets/aguarde-orange.gif" id="loading-gif" />
         </div>
 
-        <div id="div_erros_login"></div>
+        <div id="div_erros_login" class="erros_login"></div>
         
         <div class="link-cadastro">
             Não tem conta? <a href="cadastro.html">Cadastre-se</a>
@@ -71,7 +72,7 @@
 
         if (emailVar == "" || senhaVar == "") {
             cardErro.style.display = "block"
-            mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+            mensagem_erro.innerHTML = "Todos os campos devem ser preenchidos!";
             finalizarAguardar();
             return false;
         }

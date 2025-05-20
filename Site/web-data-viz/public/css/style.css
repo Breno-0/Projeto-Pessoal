@@ -316,6 +316,14 @@ header .container {
     text-decoration: underline;
 }
 
+.card_erro{
+    color: yellow;
+}
+
+.erros_login{
+    color: red;
+}
+
 /*---------------------------------------------------cadastro----------------------------------------*/
 
 body {
