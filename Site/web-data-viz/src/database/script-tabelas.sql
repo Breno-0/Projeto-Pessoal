@@ -11,3 +11,11 @@ slipknot boolean,
 metallica boolean,
 blackSabbath boolean
 );
+
+CREATE TABLE aviso(
+id int primary key auto_increment,
+titulo varchar(100),
+descricao varchar(150),
+fk_usuario int,
+foreign key (fk_ususario) references usuario(id)
+);
