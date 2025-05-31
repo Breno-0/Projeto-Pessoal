@@ -12,6 +12,14 @@ from usuario;`;
     return database.executar(instrucaoSql);
 }
 
+function usuariosTotais(){
+    var instrucaoSql = `select count(id) as 'UsuariosTotais' from usuario;`;
+
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
 module.exports = {
-    pegar
+    pegar,
+    usuariosTotais
 }
