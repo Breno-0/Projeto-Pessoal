@@ -237,10 +237,14 @@ header .container {
 
 /*-------------------------------------------login----------------------------------------------*/
 
-.login-container body {
-    background: linear-gradient(120deg, #1a1a1a 60%, #2d2d2d 100%);
-    min-height: 100vh;
-    margin: 0;
+.login-fundo {
+    min-height: 80vh;
+    background-image: url('../assets/imgs/showFundoLogin.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .login-container {
@@ -326,11 +330,14 @@ header .container {
 
 /*---------------------------------------------------cadastro----------------------------------------*/
 
-body {
-    background: linear-gradient(120deg, #1a1a1a 60%, #2d2d2d 100%);
+.cadastro-fundo{
     min-height: 100vh;
-    margin: 0;
-    margin-bottom: 40ox;
+    background-image: url('../assets/imgs/showFundocadastro.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .cadastro-container {
@@ -342,7 +349,8 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 60px auto 0 auto;
+    margin: 60px auto 20px auto;
+    
 }
 
 .cadastro-container h2 {

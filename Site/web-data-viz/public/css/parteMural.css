@@ -1,0 +1,154 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;600;800&family=Metal+Mania&display=swap');
+
+
+.dash-right {
+  width: 80%;
+  background: rgba(22, 22, 24, 0.98);
+  padding: 40px 5% 40px 5%;
+  min-height: 100vh;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container {
+  background: rgba(30, 30, 30, 0.98);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.7);
+  padding: 32px 24px;
+  max-width: 700px;
+  width: 100%;
+}
+
+.container h1 {
+  font-family: 'Metal Mania', cursive;
+  color: #c21111;
+  font-size: 2rem;
+  margin-bottom: 18px;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 8px #000;
+  text-align: center;
+}
+
+.div-form {
+  margin-bottom: 32px;
+}
+
+.div-form label {
+  font-size: 1.1rem;
+  color: #e3b062;
+  font-family: 'Barlow', sans-serif;
+}
+
+.div-form input,
+.div-form textarea {
+  width: 100%;
+  background: #232323;
+  border: 1.5px solid #c21111;
+  border-radius: 8px;
+  color: #f3f3f3;
+  padding: 10px;
+  margin-top: 6px;
+  font-size: 1rem;
+  font-family: 'Barlow', sans-serif;
+  transition: border 0.2s;
+  outline: none;
+}
+
+.div-form input:focus,
+.div-form textarea:focus {
+  border: 1.5px solid #e3b062;
+}
+
+.div-form button {
+  background: #c21111;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 28px;
+  font-size: 1.1rem;
+  font-family: 'Barlow', sans-serif;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background 0.2s, color 0.2s;
+  box-shadow: 0 2px 8px #0004;
+}
+
+.div-form button:hover {
+  background: #e3b062;
+  color: #212124;
+}
+
+.div-results {
+  margin-top: 24px;
+}
+
+.feed-container {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  
+}
+
+.publicacao {
+  background: rgba(35, 35, 35, 0.92);
+  border-left: 6px solid #c21111;
+  border-radius: 10px;
+  box-shadow: 0 4px 18px #000a;
+  padding: 22px 28px;
+  transition: box-shadow 0.2s;
+  margin-bottom: 8px;
+}
+
+.publicacao:hover {
+  box-shadow: 0 8px 32px #c2111166;
+}
+
+.publicacao-nome {
+  color: #32b9cd;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-right: 18px;
+  display: inline-block;
+}
+
+.publicacao-titulo {
+  color: #e3b062;
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-right: 18px;
+  display: inline-block;
+}
+
+.publicacao-descricao {
+  color: #f3f3f3;
+  font-size: 1.05rem;
+  margin: 10px 0 0 0;
+  line-height: 1.5;
+}
+
+.div-buttons {
+  margin-top: 14px;
+  display: flex;
+  gap: 12px;
+}
+
+.publicacao-btn-editar {
+  background: #32b9cd;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 18px;
+  font-size: 1rem;
+  font-family: 'Barlow', sans-serif;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.publicacao-btn-editar:hover {
+  background: #c21111;
+  color: #fff;
+}
