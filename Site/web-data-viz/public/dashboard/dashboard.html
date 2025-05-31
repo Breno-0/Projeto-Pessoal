@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AquaTech | Dashboards</title>
 
-    
+
     <link rel="stylesheet" href="./../css/dashboards.css">
     <link rel="stylesheet" href="./../css/estilo.css" />
     <script src="../js/sessao.js"></script>
@@ -28,7 +28,7 @@
 
 <!-- <body onload=" atualizarFeed()"> -->
 
-<body>
+<body onload="pegar()">
 
     <div class="janela">
         <div class="header-left">
@@ -40,7 +40,7 @@
 
             <div class="btn-nav-white">
                 <a href="./cards.html">
-                    <h3>Aquários</h3>
+                    <h3>Início</h3>
                 </a>
             </div>
 
@@ -62,13 +62,28 @@
 
         </div>
 
+        
+
         <div class="dash">
             <div id="alerta">
+                
             </div>
 
-            <div class="btns-dash" id="btnAquario">
-                <!-- O gráfico é chamado de acordo com o id (fk_aquario) do banco  -->
+
+            <div>
+                
             </div>
+            
+            
+            <div class="btns-dash" id="btnAquario">
+                <canvas id="graficoBarra" class="chart-container">
+
+                </canvas>
+            </div>
+
+
+            
+
             <div id="graficos">
             </div>
         </div>
@@ -80,6 +95,100 @@
 </html>
 
 <script>
+
+    let dados = [];
+
+    let soad = 0
+    let metallica = 0
+    let slip = 0
+    let black = 0
+
+    function pegar() {
+        fetch("/informacoes/pegar", {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+            }
+
+
+        })
+
+            .then(function (resposta) {
+                console.log("resposta: ", resposta);
+
+                if (resposta.ok) {
+                    resposta.json().then(data => {
+                        console.log(data)
+                        dados = data
+
+                        separar()
+                    })
+                } else {
+                    throw "Houve um erro ao tentar realizar o cadastro!";
+                }
+            })
+            .catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+                finalizarAguardar();
+            });
+
+        return false;
+    }
+
+    function separar() {
+
+        soad = dados[0].SOAD;
+        slip = dados[0].Slipknot;
+        metallica = dados[0].Metallica;
+        black = dados[0].BlackSabbath;
+
+        console.log(soad, slip, metallica, black)
+
+        //Gráfico de Barras
+    const ctx = document.getElementById('graficoBarra');
+    new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['System of a Down', 'Slipknot', 'Metallica', 'Black Sabbath'],
+            datasets: [{
+                label: 'Votos por Bandas',
+                data: [soad, slip, metallica, black],
+                borderWidth: 2,
+                backgroundColor: ['#0057d9', '#ffff', '#00FF7F', '#FF0000'] 
+                
+            }]
+        },
+        options: {
+            indexAxis: 'x',
+            scales: {
+                y: {
+                    beginAtZero: true
+                },
+                x: {
+                    ticks: {
+                        font: {
+                            size: 20,
+                            family: 'Poppins'
+                        },
+                        color: 'white'
+                    }
+                }
+            },
+            plugins: {
+                legend: {
+                    labels: {
+                        font: {
+                            size: 30,
+                            family: 'Poppins'
+                        },
+                        color: 'white'
+                    }
+                }
+            }
+        }
+    });
+}
+    
     b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
 
     let proximaAtualizacao;
