@@ -9,13 +9,11 @@ body {
   color: #f3f3f3;
 }
 
-/* Layout principal */
 .janela {
   display: flex;
   min-height: 100vh;
 }
 
-/* Menu lateral */
 .header-left {
   width: 20%;
   min-width: 220px;
@@ -91,7 +89,6 @@ body {
   color: #fff;
 }
 
-
 .dash {
   width: 80%;
   background-image: url('../assets/imgs/showFundo.png');
@@ -103,7 +100,6 @@ body {
   flex-direction: column;
   align-items: center;
 }
-
 
 .kpi-linha {
   display: flex;
@@ -129,24 +125,6 @@ body {
   margin-bottom: 0;
 }
 
-.chart-container, #graficoBarra {
-  background: #232323;
-  border-radius: 16px;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.5);
-  padding: 24px;
-  max-width: 700px;
-  width: 100%;
-  height: 380px ;
-  display: block;
-  margin: 0 auto 32px auto;
-}
-
-canvas#graficoBarra {
-  width: 100% ;
-  height: 320px ;
-  background: transparent;
-}
-
-canvas {
-  background: transparent;
+.graficos{
+  max-width: 600px;
 }

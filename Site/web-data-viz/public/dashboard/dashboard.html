@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="./../css/dashboards.css">
     <link rel="stylesheet" href="../css/parteGraficos.css">
     <link rel="icon" href="../assets/icon/iconeRock.png" />
-    
+
     <script src="../js/sessao.js"></script>
     <script src="./../js/alerta.js"></script>
 
@@ -21,11 +21,11 @@
         href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
 
-    
+
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-    
-    
+
+
 </head>
 
 
@@ -66,23 +66,23 @@
 
         </div>
 
-        
+
 
         <div class="dash">
 
             <div id="alerta"></div>
 
             <div class="kpi-linha">
-            <div class="kpi" id="div_maisVotos"></div>
-            <div class="kpi" id="div_totalUsuarios"></div>
+                <div class="kpi" id="div_maisVotos"></div>
+                <div class="kpi" id="div_totalUsuarios"></div>
             </div>
 
-            <div class="chart-container">
-            <canvas id="graficoBarra"></canvas>
-            </div>
+            <div class="graficos">
 
-            <div class="chart-container">
-            <canvas id="graficoPizza"></canvas>
+                <canvas id="graficoBarra"></canvas>
+
+                <canvas id="graficoPizza"></canvas>
+
             </div>
 
             <div id="graficos"></div>
@@ -97,15 +97,14 @@
 <script>
 
     let dados = [];
-    
-    
+
 
     let soad = 0
     let metallica = 0
     let slip = 0
     let black = 0
 
-    
+
 
     function pegar() {
         fetch("/informacoes/pegar", {
@@ -117,18 +116,17 @@
         })
 
             .then(function (resposta) {
-                
+
 
                 if (resposta.ok) {
                     resposta.json().then(data => {
-                        
+
                         dados = data
 
                         separar()
                         maisVotos()
                         votosTotais()
-                        porcentagem()
-                        
+
                     })
                 } else {
                     throw "Houve um erro ao tentar realizar o cadastro!";
@@ -149,162 +147,111 @@
         metallica = dados[0].Metallica;
         black = dados[0].BlackSabbath;
 
-    
-    const ctx = document.getElementById('graficoBarra');
-    new Chart(ctx, {
-        type: 'bar',
-        data: {
-            labels: ['System of a Down', 'Slipknot', 'Metallica', 'Black Sabbath'],
-            datasets: [{
-                label: 'Votos por Banda:',
-                data: [soad, slip, metallica, black],
-                borderWidth: 2,
-                backgroundColor: ['#FF4500', '#8B0000', '#E0FFFF', '#8B008B'] 
-            }]
-        },
-        options: {
-            indexAxis: 'x',
-            scales: {
-                y: {
-                    beginAtZero: true
+
+        const ctx = document.getElementById('graficoBarra');
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['System of a Down', 'Slipknot', 'Metallica', 'Black Sabbath'],
+                datasets: [{
+                    label: 'Votos por Banda',
+                    data: [soad, slip, metallica, black],
+                    borderWidth: 2,
+                    backgroundColor: ['#FF4500', '#8B0000', '#E0FFFF', '#8B008B']
+                }]
+            },
+            options: {
+                indexAxis: 'x',
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    },
+                    x: {
+                        ticks: {
+                            font: {
+                                size: 20,
+                                family: 'Barlow'
+                            },
+                            color: 'white'
+                        }
+                    }
                 },
-                x: {
-                    ticks: {
+                plugins: {
+                    legend: {
+                        labels: {
+                            font: {
+                                size: 0,
+                                family: 'Barlow'
+                            },
+                            color: 'white'
+                        }
+                    },
+                    title: {
+                        display: true,
+                        text: 'Votos por Banda:',
                         font: {
-                            size: 20,
+                            size: 30,
                             family: 'Barlow'
                         },
                         color: 'white'
                     }
                 }
-            },
-            plugins: {
-                legend: {
-                    labels: {
-                        font: {
-                            size: 0,
-                            family: 'Barlow'
-                        },
-                        color: 'white'
-                    }
-                },
-                 title: {
-                 display: true,
-                 text: 'Votos por Banda:',
-                 font: {
-                    size: 40,
-                    family: 'Barlow'
-                 },
-                 color: 'white'
-             }
             }
-        }
-    });
+        });
 
-    
-}
 
-function porcentagem(){
+    }
 
-        soad = dados[0].SOAD  ;
-        slip = dados[0].Slipknot;
-        metallica = dados[0].Metallica;
-        black = dados[0].BlackSabbath;
 
-    const ctx = document.getElementById('graficoPizza');
-    new Chart(ctx, {
-        type: 'pie',
-        data: {
-            labels: ['System of a Down', 'Slipknot', 'Metallica', 'Black Sabbath'],
-            datasets: [{
-                label: 'Votos por Banda:',
-                data: [soad, slip, metallica, black],
-                borderWidth: 2,
-                backgroundColor: ['#FF4500', '#8B0000', '#E0FFFF', '#8B008B'] 
-            }]
-        },
-        options: {
-            responsive: true,
-            plugins: {
-                legend: {
-                    labels: {
-                        font: {
-                            size: 20,
-                            family: 'Barlow'
-                        },
-                        color: 'white'
-                    }
-                },
-                 title: {
-                 display: true,
-                 text: 'Porcentagem de Aprovação:',
-                 font: {
-                    size: 30,
-                    family: 'Barlow'
-                 },
-                 color: 'white'
-             }
-            }
-        }
-    });
-}
 
-let maior = 0
+    let maior = 0
 
-function maisVotos(){
+    function maisVotos() {
 
-    let indice = 0
-    let frase = "";
+        let indice = 0
+        let frase = "";
 
         soad = dados[0].SOAD;
         slip = dados[0].Slipknot;
         metallica = dados[0].Metallica;
         black = dados[0].BlackSabbath;
 
-        
-    let votos = [soad, slip, metallica, black]
-    
 
-    for(let i = 0 ; i < votos.length; i++){
-        
-        if(votos[i] > maior){
-            
-            maior = votos[i]
-            indice = i
+        let votos = [soad, slip, metallica, black]
+
+
+        for (let i = 0; i < votos.length; i++) {
+
+            if (votos[i] > maior) {
+
+                maior = votos[i]
+                indice = i
+            }
         }
+
+        if (indice == 0) {
+            frase = '<span style="color: #FF4500;">System of a Down</span>'
+        } else if (indice == 1) {
+            frase = '<span style="color: #8B0000;">Slipknot</span>'
+        } else if (indice == 2) {
+            frase = '<span style="color: #E0FFFF;">Metallica</span>'
+        } else if (indice == 3) {
+            frase = '<span style="color: #8B008B;">Black Sabbath</span>'
+        }
+
+        div_maisVotos.innerHTML = `A Banda com mais Votos é: ${frase}`
     }
 
-    if(indice == 0){
-        frase = '<span style="color: #FF4500;">System of a Down</span>'
-    }else if(indice == 1){
-        frase = '<span style="color: #8B0000;">Slipknot</span>'
-    }else if(indice == 2){
-        frase = '<span style="color: #E0FFFF;">Metallica</span>'
-    }else if(indice == 3){
-        frase = '<span style="color: #8B008B;">Black Sabbath</span>'
-    }
+    var qtdusuarios = 0;
 
-    div_maisVotos.innerHTML = `A Banda com mais Votos é: ${frase}`
+    function votosTotais() {
 
-    
-}
-
-var qtdusuarios = '';
-
-
-function votosTotais(){
-
-    console.log('função votosTotais')
-
-    fetch("/informacoes/usuariosTotais", {
+        fetch("/informacoes/usuariosTotais", {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
             }
-
-
         })
-
             .then(function (resposta) {
                 console.log("resposta: ", resposta);
 
@@ -316,6 +263,7 @@ function votosTotais(){
 
                         div_totalUsuarios.innerHTML = `Totais de Usuários que participaram dos Votos: <span style="color: #00FF00;">${qtdusuarios}</span>`
 
+                        porcentagem()
                         
                     })
                 } else {
@@ -326,48 +274,66 @@ function votosTotais(){
                 console.log(`#ERRO: ${resposta}`);
                 finalizarAguardar();
             });
-            
-            
+
+
         return false;
 
-}
+    }
 
     
+
+    function porcentagem() {
+
+        
+
+        soad = ((dados[0].SOAD / qtdusuarios) * 100).toFixed(2) ;
+        slip = ((dados[0].Slipknot / qtdusuarios) * 100).toFixed(2);
+        metallica = ((dados[0].Metallica / qtdusuarios) * 100).toFixed(2);
+        black = ((dados[0].BlackSabbath / qtdusuarios) * 100).toFixed(2);
+
+        
+
+        const ctx = document.getElementById('graficoPizza');
+        new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: ['System of a Down', 'Slipknot', 'Metallica', 'Black Sabbath'],
+                datasets: [{
+                    label: 'Votos por Banda',
+                    data: [soad, slip, metallica, black],
+                    borderWidth: 2,
+                    backgroundColor: ['#FF4500', '#8B0000', '#E0FFFF', '#8B008B']
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        labels: {
+                            font: {
+                                size: 20,
+                                family: 'Barlow'
+                            },
+                            color: 'white'
+                        }
+                    },
+                    title: {
+                        display: true,
+                        text: 'Porcentagem de Aprovação:',
+                        font: {
+                            size: 30,
+                            family: 'Barlow'
+                        },
+                        color: 'white'
+                    }
+                }
+            }
+        });
+    }
+
+
     b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
 
     let proximaAtualizacao;
 
-   
-
-    
-
-    
-
-    
-
-    // O gráfico é construído com três funções:
-    // 1. obterDadosGrafico -> Traz dados do Banco de Dados para montar o gráfico da primeira vez
-    // 2. plotarGrafico -> Monta o gráfico com os dados trazidos e exibe em tela
-    // 3. atualizarGrafico -> Atualiza o gráfico, trazendo novamente dados do Banco
-
-    // Esta função *obterDadosGrafico* busca os últimos dados inseridos em tabela de medidas.
-    // para, quando carregar o gráfico da primeira vez, já trazer com vários dados.
-    // A função *obterDadosGrafico* também invoca a função *plotarGrafico*
-
-    //     Se quiser alterar a busca, ajuste as regras de negócio em src/controllers
-    //     Para ajustar o "select", ajuste o comando sql em src/models
-    
-
-    // Esta função *plotarGrafico* usa os dados capturados na função anterior para criar o gráfico
-    // Configura o gráfico (cores, tipo, etc), materializa-o na página e, 
-    // A função *plotarGrafico* também invoca a função *atualizarGrafico*
-    
-
-
-    // Esta função *atualizarGrafico* atualiza o gráfico que foi renderizado na página,
-    // buscando a última medida inserida em tabela contendo as capturas, 
-
-    //     Se quiser alterar a busca, ajuste as regras de negócio em src/controllers
-    //     Para ajustar o "select", ajuste o comando sql em src/models
-    
 </script>
