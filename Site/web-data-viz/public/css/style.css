@@ -47,7 +47,6 @@ header .container {
     text-decoration: none;
     position: relative;
     font-size: large;
-
 }
 
 .navbar .barra {
@@ -438,6 +437,7 @@ footer {
 
 /*--------------------------------------historia bandas---------------------------------------------*/
 
+
 .banda-container {
     max-width: 800px;
     margin: 40px auto;
@@ -474,19 +474,28 @@ footer {
 .SOAD {
     background-image: url(../assets/imgs/SOADfundo.jpg);
     background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 100vh;
 }
 
 .SLIPKNOT {
     background-image: url(../assets/imgs/slipknotfundo.png);
     background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    
 }
 
 .METALLICA {
     background-image: url(../assets/imgs/metallicaFundo.jpg);
     background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 100vh;
 }
 
 .BLACK {
     background-image: url(../assets/imgs/blackfundo3.jpg);
     background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 100vh;
 }
